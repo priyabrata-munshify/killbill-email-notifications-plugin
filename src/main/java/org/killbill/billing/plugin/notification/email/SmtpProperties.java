@@ -30,14 +30,15 @@ public class SmtpProperties {
     private String password;
     private boolean useSSL;
     private String defaultSender;
+    private boolean startTLS;
 
     public SmtpProperties(final String host, final int port, final boolean useAuthentication,
-                          final String userName, final String password, final boolean useSSL, final String defaultSender){
-        this(host, String.valueOf(port), useAuthentication, userName, password, useSSL, defaultSender);
+                          final String userName, final String password, final boolean useSSL, final String defaultSender, final boolean startTLS){
+        this(host, String.valueOf(port), useAuthentication, userName, password, useSSL, defaultSender, startTLS);
     }
 
     public SmtpProperties(final String host, final String port, final boolean useAuthentication,
-            final String userName, final String password, final boolean useSSL, final String defaultSender){
+            final String userName, final String password, final boolean useSSL, final String defaultSender, final boolean startTLS){
         this.host = host;
         this.port = port == null ? DEFAULT_SMTP_PORT : Integer.parseInt(port);
         this.useAuthentication = useAuthentication;
@@ -45,6 +46,7 @@ public class SmtpProperties {
         this.password = password;
         this.useSSL = useSSL;
         this.defaultSender = defaultSender;
+        this.startTLS = startTLS;
     }
 
     public String getHost() {
@@ -101,5 +103,13 @@ public class SmtpProperties {
 
     public void setDefaultSender(final String defaultSender) {
         this.defaultSender = defaultSender;
+    }
+    
+    public boolean isStartTLS() {
+        return startTLS;
+    }
+    
+    public void setStartTLS(final boolean startTLS) {
+        this.startTLS = startTLS;
     }
 }

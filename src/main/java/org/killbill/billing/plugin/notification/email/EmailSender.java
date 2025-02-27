@@ -210,8 +210,8 @@ public class EmailSender {
         }
 
         email.setSSLOnConnect(smtp.isUseSSL());
-        email.setStartTLSEnabled(smtp.isUseSSL());
-        email.setStartTLSRequired(smtp.isUseSSL());
+        email.setStartTLSEnabled(smtp.isStartTLS());
+        email.setStartTLSRequired(smtp.isStartTLS());
 
         logger.info("Sending email to={}, cc={}, subject={}", to, cc, subject);
         email.send();

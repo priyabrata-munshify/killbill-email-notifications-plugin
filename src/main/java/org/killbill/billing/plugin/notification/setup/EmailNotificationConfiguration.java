@@ -71,9 +71,10 @@ public class EmailNotificationConfiguration {
         final String smtpPassword = properties.getProperty(SMTP_PROPERTY_PREFIX + "password");
         final String smtpUseSSL = properties.getProperty(SMTP_PROPERTY_PREFIX + "useSSL");
         final String defaultSender = properties.getProperty(SMTP_PROPERTY_PREFIX + "defaultSender");
+        final String smtpStartTLS = properties.getProperty(SMTP_PROPERTY_PREFIX + "startTLS");
 
         this.smtp = new SmtpProperties(smtpServerName, smtpPort, parseBoolean(smtpAuth),
-                                       smtpUserName, smtpPassword, parseBoolean(smtpUseSSL),defaultSender);
+                                       smtpUserName, smtpPassword, parseBoolean(smtpUseSSL),defaultSender, parseBoolean(smtpStartTLS));
         this.sendHTMLEmail = parseBoolean(properties.getProperty(SMTP_PROPERTY_PREFIX + "sendHTMLEmail"));
         
         this.adminUsername = properties.getProperty(CREDENTIALS_PROPERTY_PREFIX + "username");
